@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Digital</title>
+    <script>
+        // Ambil parameter dari URL
+        const params = new URLSearchParams(window.location.search);
+        const to = params.get('to') || 'default'; // Ambil parameter 'to'
+
+        // Redirect ke halaman yang sesuai
+        if (to) {
+            window.location.href = `/${to}/index.html`;
+        } else {
+            document.body.innerHTML = '<h1>Halaman tidak ditemukan</h1>';
+        }
+    </script>
+</head>
+<body>
+    <h1>Loading...</h1>
+</body>
+</html>
