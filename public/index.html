@@ -4,20 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Digital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="undangan"></div>
     <script>
         // Ambil parameter dari URL
         const params = new URLSearchParams(window.location.search);
-        const to = params.get('to') || 'default'; // Ambil parameter 'to'
+        const to = params.get('to'); // Ambil parameter 'to'
 
-        // Redirect ke halaman yang sesuai
-        if (to) {
-            window.location.href = `/${to}/index.html`;
+        // Contoh data undangan untuk setiap penerima
+        const undanganData = {
+            'rifqi': 'Selamat datang, Rifqi! Anda diundang untuk menghadiri acara kami.',
+            'fida-bayu': 'Selamat datang, Fida Bayu! Anda diundang untuk menghadiri acara kami.',
+            // Tambahkan data untuk penerima lainnya di sini
+        };
+
+        // Tampilkan konten sesuai dengan penerima
+        const undanganElement = document.getElementById('undangan');
+        if (to && undanganData[to]) {
+            undanganElement.innerHTML = `<h1>${undanganData[to]}</h1>`;
         } else {
-            document.body.innerHTML = '<h1>Halaman tidak ditemukan</h1>';
+            undanganElement.innerHTML = '<h1>Halaman tidak ditemukan</h1>';
         }
     </script>
-</head>
-<body>
-    <h1>Loading...</h1>
 </body>
 </html>
