@@ -227,7 +227,7 @@
 
                 <div class="py-4">
                     <div class="img-crop border border-3 border-light shadow mx-auto">
-                        <img src="./assets/images/bg.jpeg" alt="bg" onclick="util.modal(this)">
+                        <img src="https://ulems.my.id/assets/images/bg.jpeg" alt="bg" onclick="util.modal(this)">
                     </div>
                 </div>
 
@@ -269,7 +269,7 @@
 
                     <div data-aos="fade-right" data-aos-duration="2000">
                         <div class="img-crop border border-3 border-light shadow my-4 mx-auto">
-                            <img src="./assets/images/cowo.png" alt="cowo" onclick="util.modal(this)">
+                            <img src="https://ulems.my.id/favicon.ico" alt="cowo" onclick="util.modal(this)">
                         </div>
                         <h1 class="font-esthetic" style="font-size: 3rem;">Rifqi Rahmat.</h1>
                         <p class="mt-3 mb-0" style="font-size: 1.25rem;">Putra</p>
@@ -280,7 +280,7 @@
 
                     <div data-aos="fade-left" data-aos-duration="2000">
                         <div class="img-crop border border-3 border-light shadow my-4 mx-auto">
-                            <img src="./assets/images/cewe.png" alt="cewe" onclick="util.modal(this)">
+                            <img src="https://ulems.my.id/favicon.ico" alt="cewe" onclick="util.modal(this)">
                         </div>
                         <h1 class="font-esthetic" style="font-size: 3rem;">Freyanashifa Jayawardana</h1>
                         <p class="mt-3 mb-0" style="font-size: 1.25rem;">Putri</p>
@@ -538,7 +538,7 @@
                 <h1 class="font-esthetic mb-4" style="font-size: 2.5rem;">The Wedding Of</h1>
 
                 <div class="img-crop border border-3 border-light shadow mb-4 mx-auto">
-                    <img src="./assets/images/bg.jpeg" alt="bg">
+                    <img src="https://ulems.my.id/favicon.ico" alt="bg">
                 </div>
 
                 <h1 class="font-esthetic my-4" style="font-size: 2.5rem;">Rifqi & Freya</h1>
@@ -552,9 +552,9 @@
     </div>
 
     <!-- Audio Button -->
-    <button type="button" id="tombol-musik" style="display: none;" class="btn btn-light btn-sm rounded-circle btn-music" onclick="util.play(this)" data-status="true" data-url="./assets/music/sound.mp3">
+    <!-- <button type="button" id="tombol-musik" style="display: none;" class="btn btn-light btn-sm rounded-circle btn-music" onclick="util.play(this)" data-status="true" data-url="./assets/music/sound.mp3">
         <i class="fa-solid fa-circle-pause"></i>
-    </button>
+    </button> -->
 
     <!-- Loading page -->
     <div class="loading-page" id="loading" style="opacity: 1;">
@@ -575,7 +575,7 @@
             <div class="modal-content">
                 <div class="modal-body p-0">
                     <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
-                        <img src="./assets/images/bg.jpeg" class="w-100" alt="foto" id="show-modal-image">
+                        <img src="https://ulems.my.id/favicon.ico" class="w-100" alt="foto" id="show-modal-image">
                     </div>
                 </div>
             </div>
@@ -861,29 +861,29 @@ assets.forEach((asset) => {
 });
 })();
 
-const audio = (() => {
-let audio = null;
+// const audio = (() => {
+// let audio = null;
 
-const singleton = () => {
-    if (!audio) {
-        audio = new Audio();
-        audio.src = document.getElementById('tombol-musik').getAttribute('data-url');
-        audio.load();
-        audio.currentTime = 0;
-        audio.autoplay = true;
-        audio.muted = false;
-        audio.loop = true;
-        audio.volume = 1;
-    }
+// const singleton = () => {
+//     if (!audio) {
+//         audio = new Audio();
+//         audio.src = document.getElementById('tombol-musik').getAttribute('data-url');
+//         audio.load();
+//         audio.currentTime = 0;
+//         audio.autoplay = true;
+//         audio.muted = false;
+//         audio.loop = true;
+//         audio.volume = 1;
+//     }
 
-    return audio;
-};
+//     return audio;
+// };
 
-return {
-    play: () => singleton().play(),
-    pause: () => singleton().pause(),
-};
-})();
+// return {
+//     play: () => singleton().play(),
+//     pause: () => singleton().pause(),
+// };
+// })();
 
 const pagination = (() => {
 
@@ -1587,26 +1587,78 @@ return {
 };
 })();
     </script>
-    
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const to = params.get('to'); // Ambil parameter 'to'
-
-        // Contoh data undangan untuk setiap penerima
-        const undanganData = {
-            'rifqi': 'Selamat datang, Rifqi! Anda diundang untuk menghadiri acara kami.',
-            'fida-bayu': 'Selamat datang, Fida Bayu! Anda diundang untuk menghadiri acara kami.',
-            // Tambahkan data untuk penerima lainnya di sini
-        };
-
-        // Tampilkan konten sesuai dengan penerima
-        const undanganElement = document.getElementById('undangan');
-        if (to && undanganData[to]) {
-            undanganElement.innerHTML = `<h1>${undanganData[to]}</h1>`;
-        } else {
-            undanganElement.innerHTML = '<h1>Halaman tidak ditemukan</h1>';
-        }
-    </script>
+        // Fungsi untuk mengatur loading page
+document.addEventListener('DOMContentLoaded', () => {
+    // Ambil elemen loading dan welcome
+    const loadingPage = document.getElementById('loading');
+    const welcomePage = document.getElementById('welcome');
+    const mainContent = document.querySelector('[role="main"]');
+    const progressBar = document.getElementById('bar');
     
+    // Sembunyikan main content saat loading
+    if (mainContent) {
+        mainContent.style.display = 'none';
+    }
+
+    // Simulasi loading progress
+    let progress = 0;
+    const loadingInterval = setInterval(() => {
+        progress += 1;
+        if (progressBar) {
+            progressBar.style.width = `${progress}%`;
+        }
+        
+        if (progress >= 100) {
+            clearInterval(loadingInterval);
+            
+            // Sembunyikan loading page
+            if (loadingPage) {
+                loadingPage.style.opacity = '0';
+                setTimeout(() => {
+                    loadingPage.style.display = 'none';
+                    
+                    // Tampilkan welcome page
+                    if (welcomePage) {
+                        welcomePage.style.display = 'block';
+                        welcomePage.style.opacity = '1';
+                        
+                        // Tambahkan event listener untuk tombol "Buka Undangan"
+                        const openInvitation = document.querySelector('#welcome button');
+                        if (openInvitation) {
+                            openInvitation.addEventListener('click', () => {
+                                welcomePage.style.opacity = '0';
+                                setTimeout(() => {
+                                    welcomePage.style.display = 'none';
+                                    if (mainContent) {
+                                        mainContent.style.display = 'block';
+                                    }
+                                }, 500);
+                            });
+                        }
+                    }
+                }, 500);
+            }
+        }
+    }, 30); // Update setiap 30ms untuk animasi yang smooth
+});
+
+// Tambahkan CSS yang diperlukan
+const style = document.createElement('style');
+style.textContent = `
+    .loading-page {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #111111;
+        z-index: 9999;
+        transition: opacity 0.5s ease-in-out;
+    }
+`;
+document.head.appendChild(style);
+    </script>
 </body>
+
 </html>
